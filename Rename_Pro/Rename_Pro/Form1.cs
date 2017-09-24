@@ -32,13 +32,14 @@ namespace Rename_Pro
                 }
                 tempfiletypesearch = textBox1.Text;
                 MessageBox.Show(tempfiletypesearch);
-                string[] dirs = Directory.GetFiles(@"c:\", tempfiletypesearch);//need to figure out why replacing * with tempfiletype search didnt work;
+                string[] dirs = Directory.GetFiles(textBox2.Text, tempfiletypesearch);//need to figure out why replacing * with tempfiletype search didnt work;
                 Console.WriteLine("The number of files starting with c is {0}.", dirs.Length);
                 foreach (string dir in dirs)
                 {
                     Console.WriteLine(dir);
                     vconsole_write(dir);
                     file_array[tempcts] = dir;//dumps file names to array
+                    listBox1.Items.Add(dir);
                     tempcts++;
 
                 }
@@ -56,6 +57,21 @@ namespace Rename_Pro
         void dump_array()
         {
             //fill in with code to dump array to vconsole
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            {
+                if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    textBox2.Text = folderBrowserDialog1.SelectedPath;
+                }
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
         }
     }
 }
