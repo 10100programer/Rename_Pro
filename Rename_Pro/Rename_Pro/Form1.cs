@@ -20,8 +20,10 @@ namespace Rename_Pro
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string[] file_array = new string[1024]; //declare array
             try
             {
+                int tempcts = 0;
                 // Only get files that begin with the letter "c."
                 string[] dirs = Directory.GetFiles(@"c:\", "*");
                 Console.WriteLine("The number of files starting with c is {0}.", dirs.Length);
@@ -29,7 +31,11 @@ namespace Rename_Pro
                 {
                     Console.WriteLine(dir);
                     vconsole_write(dir);
+                    file_array[tempcts] = dir;
+                    tempcts++;
+
                 }
+                MessageBox.Show(file_array.Length.ToString()); //stop here to check contents of array
             }
             catch (Exception ex)
             {
@@ -38,7 +44,11 @@ namespace Rename_Pro
         }
         void vconsole_write(string input)
         {
-            richTextBox1.AppendText(input + "\n");
+            richTextBox1.AppendText(input + "\n");//input + newline
+        }
+        void dump_array()
+        {
+            //fill in with code to dump array to vconsole
         }
     }
 }
