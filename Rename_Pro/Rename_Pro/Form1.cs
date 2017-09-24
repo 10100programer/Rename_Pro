@@ -78,7 +78,8 @@ namespace Rename_Pro
         {
             lyndaparse parse = new lyndaparse();//declare new lynda parse
             parse.test();
-            parse.populate("496951_00_01-Welcome.mp4");//sample data
+            parse.populate(textBox3.Text);//sample data
+            MessageBox.Show(parse.returnname());
 
         }
     }
