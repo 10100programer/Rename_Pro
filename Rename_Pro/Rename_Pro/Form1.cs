@@ -25,13 +25,20 @@ namespace Rename_Pro
             {
                 int tempcts = 0;
                 // Only get files that begin with the letter "c."
-                string[] dirs = Directory.GetFiles(@"c:\", "*");
+                string tempfiletypesearch = "";
+                if(textBox1.TextLength<1)
+                {
+                    tempfiletypesearch = "*"; //defaults to all files
+                }
+                tempfiletypesearch = textBox1.Text;
+                MessageBox.Show(tempfiletypesearch);
+                string[] dirs = Directory.GetFiles(@"c:\", tempfiletypesearch);//need to figure out why replacing * with tempfiletype search didnt work;
                 Console.WriteLine("The number of files starting with c is {0}.", dirs.Length);
                 foreach (string dir in dirs)
                 {
                     Console.WriteLine(dir);
                     vconsole_write(dir);
-                    file_array[tempcts] = dir;
+                    file_array[tempcts] = dir;//dumps file names to array
                     tempcts++;
 
                 }
