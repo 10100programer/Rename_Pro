@@ -20,6 +20,7 @@ namespace Rename_Pro
 
         private void button1_Click(object sender, EventArgs e)
         {
+            listBox1.Items.Clear();
             string[] file_array = new string[1024]; //declare array
             try
             {
@@ -31,7 +32,7 @@ namespace Rename_Pro
                     tempfiletypesearch = "*"; //defaults to all files
                 }
                 tempfiletypesearch = textBox1.Text;
-                MessageBox.Show(tempfiletypesearch);
+                //MessageBox.Show(tempfiletypesearch);
                 string[] dirs = Directory.GetFiles(textBox2.Text, tempfiletypesearch);//need to figure out why replacing * with tempfiletype search didnt work;
                 Console.WriteLine("The number of files starting with c is {0}.", dirs.Length);
                 foreach (string dir in dirs)
@@ -43,7 +44,7 @@ namespace Rename_Pro
                     tempcts++;
 
                 }
-                MessageBox.Show(file_array.Length.ToString()); //stop here to check contents of array
+               // MessageBox.Show(file_array.Length.ToString()); //stop here to check contents of array
             }
             catch (Exception ex)
             {
@@ -81,6 +82,21 @@ namespace Rename_Pro
             parse.populate(textBox3.Text);//sample data
             MessageBox.Show(parse.returnname());
 
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            lyndaparse parse = new lyndaparse();//declare new lynda parse
+            int count = 0;
+            int indexlength = listBox1.Items.Count -1; //amount of items in box
+            MessageBox.Show(listBox1.Items.Count.ToString()); //determines the amount of items in the list box
+            while (count<=indexlength)
+            {
+                parse.populate(listBox1.Items[count].ToString());
+                listBox2.Items.Add(parse.returnname());
+                vconsole_write(parse.returnname());
+                count++;
+            }
         }
     }
 }

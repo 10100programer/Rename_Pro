@@ -32,6 +32,8 @@ namespace Rename_Pro
         public void reset_vars() { return; }//used for reseting all var in the class
         public void populate(string filename)
         {
+            if (filename.Length <= 0)
+                return;
             string tempstring=null;
             int indexcts = 0; //index count
             filename    = filename.Remove   (0, 7);//Step 1 works
@@ -65,11 +67,29 @@ namespace Rename_Pro
             tempstring = tempstring + "s" + season + "e" + episode;
             tempstring = tempstring + " - " + name;
             tempstring = tempstring + extension;
-        
+            final_result = tempstring;
             return tempstring;
         }
+        public string last_result() { return final_result; }
+        private string clean(string input)//clean up File location
+        {
+            //determine total string size
+            int length = input.Length;
+            int count = 0;
+            int last_index = 0;//last index where
+            //go through every charactor and at every "/" note the index place
 
-
+            
+            while(count <= length)
+            {
+                if (input.ElementAt(count) == '/')
+                    last_index = count;
+                count++;
+            }
+            //once it has gone through all of the charactors remove all of the unnessisory 
+            input = input.Remove(0, last_index + 1);
+            return input;
+        }
 
         /* Steps for renaming a lynda file
          * File looks like 496951_00_01-Welcome.mp4
