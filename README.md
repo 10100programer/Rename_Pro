@@ -1,2 +1,2 @@
 # Rename_Pro
-Rename's file for plex
+Renames files for plex
