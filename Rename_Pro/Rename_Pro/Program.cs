@@ -34,6 +34,7 @@ namespace Rename_Pro
         {
             if (filename.Length <= 0)
                 return;
+            filename = clean(filename);//runs clean function
             string tempstring=null;
             int indexcts = 0; //index count
             filename    = filename.Remove   (0, 7);//Step 1 works
@@ -73,21 +74,30 @@ namespace Rename_Pro
         public string last_result() { return final_result; }
         private string clean(string input)//clean up File location
         {
+            MessageBox.Show(input);
             //determine total string size
+            bool anyfound = false;
             int length = input.Length;
             int count = 0;
             int last_index = 0;//last index where
             //go through every charactor and at every "/" note the index place
 
             
-            while(count <= length)
+            while(count < length)
             {
-                if (input.ElementAt(count) == '/')
+                if (input.ElementAt(count) == '\\')
+                {
+                    anyfound = true;
                     last_index = count;
+                }
                 count++;
             }
             //once it has gone through all of the charactors remove all of the unnessisory 
-            input = input.Remove(0, last_index + 1);
+            if (anyfound == true)
+            {
+                input = input.Remove(0, last_index + 1);
+            }
+            MessageBox.Show(input);
             return input;
         }
 
