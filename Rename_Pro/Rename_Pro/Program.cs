@@ -63,7 +63,7 @@ namespace Rename_Pro
             tempstring = series_name;
             tempstring = tempstring + " - ";
             tempstring = tempstring + "s" + season + "e" + episode;
-            tempstring = tempstring + " - ";
+            tempstring = tempstring + " - " + name;
             tempstring = tempstring + extension;
         
             return tempstring;
