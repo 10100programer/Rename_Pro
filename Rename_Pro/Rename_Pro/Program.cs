@@ -21,6 +21,7 @@ namespace Rename_Pro
     }
     class lyndaparse
     {
+        private bool noexteion = false;
         private string season = null;           //season var
         private string episode = null;          //episode var
         private string name = null;             //episode name var
@@ -31,8 +32,30 @@ namespace Rename_Pro
         public void reset_vars() { return; }//used for reseting all var in the class
         public void populate(string filename)
         {
-            filename= filename.Remove(0, 7);//works
-            MessageBox.Show(filename);
+            string tempstring=null;
+            int indexcts = 0; //index count
+            filename    = filename.Remove   (0, 7);//Step 1 works
+            season      = filename.Substring(0, 2);//step 2 works
+            filename    = filename.Remove   (0, 3);//Step 2 works
+            episode     = filename.Substring(0, 2);//step 3 works
+            filename    = filename.Remove   (0, 3);//Step 3 works 
+
+            while (true)//step 4 works!
+            {
+                if (filename.ElementAt(indexcts) == '.' || filename.Length <= indexcts)//cuts loop at end of string or at .
+                {
+                    if(filename.Length <= indexcts) { noexteion = true; }// sets no extension to true
+                    break;//leave loop
+                }
+               tempstring = tempstring + filename.ElementAt(indexcts);//builds tempstring with name
+               indexcts++;//index addition
+            }
+            name = tempstring;//completes step 4
+            filename=filename.Remove(0, indexcts);//removes everything except file extension
+            if(noexteion != true)
+            {
+                extension = filename;
+            }
         }
 
 
