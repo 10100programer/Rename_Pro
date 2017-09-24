@@ -26,10 +26,14 @@ namespace Rename_Pro
         private string name = null;             //episode name var
         private string extension = null;        //file extension var
         private string final_result = null;     //string for storing final rename
-        private string series_name = "unknown"; //
+        private string series_name = "unknown"; //series name defaults to unkown if not specified
         public void test() { MessageBox.Show("Test Completed!"); }
         public void reset_vars() { return; }//used for reseting all var in the class
-
+        public void populate(string filename)
+        {
+            filename= filename.Remove(0, 7);//works
+            MessageBox.Show(filename);
+        }
 
 
 
@@ -43,5 +47,7 @@ namespace Rename_Pro
          * Step4 --> Store string 5 until "." is reached or end of filename in Name Var
          * Step5 --> Store string "." until end of filename if no "." is found leave NULL
          * Step6 --> 
+         * 
+         * */
+        }
     }
-}

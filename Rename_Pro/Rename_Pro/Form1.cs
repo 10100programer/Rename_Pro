@@ -73,5 +73,13 @@ namespace Rename_Pro
         {
             listBox1.Items.Clear();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            lyndaparse parse = new lyndaparse();//declare new lynda parse
+            parse.test();
+            parse.populate("496951_00_01-Welcome.mp4");//sample data
+
+        }
     }
 }
