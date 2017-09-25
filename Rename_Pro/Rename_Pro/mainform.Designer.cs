@@ -126,7 +126,7 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(3, 16);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(282, 332);
+            this.listBox1.Size = new System.Drawing.Size(258, 332);
             this.listBox1.TabIndex = 2;
             // 
             // listBox2
@@ -135,7 +135,7 @@
             this.listBox2.FormattingEnabled = true;
             this.listBox2.Location = new System.Drawing.Point(3, 16);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(245, 332);
+            this.listBox2.Size = new System.Drawing.Size(269, 332);
             this.listBox2.TabIndex = 3;
             // 
             // groupBox1
@@ -144,7 +144,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(288, 351);
+            this.groupBox1.Size = new System.Drawing.Size(264, 351);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Old Files";
@@ -163,9 +163,9 @@
             // 
             this.groupBox2.Controls.Add(this.listBox2);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox2.Location = new System.Drawing.Point(288, 0);
+            this.groupBox2.Location = new System.Drawing.Point(264, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(251, 351);
+            this.groupBox2.Size = new System.Drawing.Size(275, 351);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "New Files";
@@ -258,6 +258,7 @@
             // 
             // button3
             // 
+            this.button3.Enabled = false;
             this.button3.Location = new System.Drawing.Point(399, 3);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(128, 45);

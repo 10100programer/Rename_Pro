@@ -85,6 +85,7 @@ namespace Rename_Pro
                 //vconsole_write(parse.returnname());
                 count++;
             }
+            button3.Enabled = true;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -107,6 +108,7 @@ namespace Rename_Pro
             MessageBox.Show("Opperation completed");
             listBox1.Items.Clear();
             listBox2.Items.Clear();
+            button3.Enabled = false;
         }
         void rename(string path_folder, string old, string new_name)
         {
