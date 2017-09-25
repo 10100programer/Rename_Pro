@@ -106,5 +106,17 @@ namespace Rename_Pro
             //vconsole_write(old + "-->" + temp2);
             System.IO.File.Move(old, temp2);
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutBox ab = new AboutBox();
+            ab.Show();
+        }
+
+        private void debugFormToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form1 debugform = new Form1();
+            debugform.Show();
+        }
     }
 }
