@@ -98,5 +98,68 @@ namespace Rename_Pro
                 count++;
             }
         }
+        void rename(string path_folder, string old, string new_name)
+        {
+            //string temp = null;
+            string temp2 = null;
+           // temp = path_folder + "\\";
+           // temp = temp + old;
+            temp2 = path_folder + "\\";
+            temp2 = temp2 + new_name;
+            vconsole_write(old + "-->" + temp2);
+            System.IO.File.Move(old, temp2);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            lyndaparse parse = new lyndaparse();//declare new lynda parse
+            listBox1.Items.Clear();
+            try
+            {
+                int tempcts = 0;
+                // Only get files that begin with the letter "c."
+                string tempfiletypesearch = "";
+                if (textBox1.TextLength < 1)
+                {
+                    tempfiletypesearch = "*"; //defaults to all files
+                }
+                tempfiletypesearch = textBox1.Text;
+                //MessageBox.Show(tempfiletypesearch);
+                string[] dirs = Directory.GetFiles(textBox2.Text, tempfiletypesearch);
+                foreach (string dir in dirs)
+                {
+                    Console.WriteLine(dir);
+                    vconsole_write(dir);
+                    listBox1.Items.Add(dir);
+                    tempcts++;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("The process failed: {0}", ex.ToString());
+            }
+            //files are in next phase
+            int count = 0;
+            int indexlength = listBox1.Items.Count - 1; //amount of items in box
+            MessageBox.Show(listBox1.Items.Count.ToString()); //determines the amount of items in the list box
+            while (count <= indexlength)
+            {
+                parse.populate(listBox1.Items[count].ToString());
+                listBox2.Items.Add(parse.returnname());
+                vconsole_write(parse.returnname());
+                count++;
+            }
+            //next phase rename
+            int count2 = 0;
+            int indexlength2 = listBox1.Items.Count - 1;
+            while(count2 <= indexlength2)
+            {
+                //listBox1.Items[count].ToString();
+                rename(textBox2.Text,listBox1.Items[count2].ToString(),listBox2.Items[count2].ToString());//renames the files
+                count2++;
+            }
+            
+        }
     }
 }
