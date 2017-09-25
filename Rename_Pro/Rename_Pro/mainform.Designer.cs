@@ -123,26 +123,29 @@
             // 
             // listBox1
             // 
+            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(6, 19);
+            this.listBox1.Location = new System.Drawing.Point(3, 16);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(299, 329);
+            this.listBox1.Size = new System.Drawing.Size(328, 362);
             this.listBox1.TabIndex = 2;
             // 
             // listBox2
             // 
+            this.listBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(6, 19);
+            this.listBox2.Location = new System.Drawing.Point(3, 16);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(174, 329);
+            this.listBox2.Size = new System.Drawing.Size(199, 362);
             this.listBox2.TabIndex = 3;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.listBox1);
-            this.groupBox1.Location = new System.Drawing.Point(5, 3);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(311, 352);
+            this.groupBox1.Size = new System.Drawing.Size(334, 381);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Old Files";
@@ -151,17 +154,19 @@
             // 
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.groupBox2);
-            this.panel1.Location = new System.Drawing.Point(10, 63);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 57);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(514, 358);
+            this.panel1.Size = new System.Drawing.Size(539, 381);
             this.panel1.TabIndex = 5;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.listBox2);
-            this.groupBox2.Location = new System.Drawing.Point(322, 3);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.groupBox2.Location = new System.Drawing.Point(334, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(186, 352);
+            this.groupBox2.Size = new System.Drawing.Size(205, 381);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "New Files";
@@ -224,18 +229,18 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Location = new System.Drawing.Point(12, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(137, 45);
+            this.button1.Size = new System.Drawing.Size(128, 45);
             this.button1.TabIndex = 7;
             this.button1.Text = "Search For Files";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(371, 3);
+            this.button3.Location = new System.Drawing.Point(399, 3);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(137, 45);
+            this.button3.Size = new System.Drawing.Size(128, 45);
             this.button3.TabIndex = 8;
             this.button3.Text = "Rename Files";
             this.button3.UseVisualStyleBackColor = true;
@@ -243,8 +248,8 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.button4);
-            this.panel3.Controls.Add(this.button3);
             this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.button3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 438);
             this.panel3.Name = "panel3";
@@ -255,7 +260,7 @@
             // 
             this.button4.Location = new System.Drawing.Point(146, 3);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(219, 45);
+            this.button4.Size = new System.Drawing.Size(247, 45);
             this.button4.TabIndex = 9;
             this.button4.Text = "Clear List";
             this.button4.UseVisualStyleBackColor = true;
@@ -265,12 +270,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(539, 511);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(555, 550);
             this.Name = "mainform";
             this.Text = "mainform";
             this.Load += new System.EventHandler(this.mainform_Load);
