@@ -161,5 +161,10 @@ namespace Rename_Pro
             }
             
         }
+
+        private void debugFormToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
