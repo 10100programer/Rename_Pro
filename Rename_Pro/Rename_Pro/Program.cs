@@ -36,27 +36,27 @@ namespace Rename_Pro
             if (filename.Length <= 0)
                 return;
             filename = clean(filename);//runs clean function
-            string tempstring=null;
+            string tempstring = null;
             int indexcts = 0; //index count
-            filename    = filename.Remove   (0, 7);//Step 1 works
-            season      = filename.Substring(0, 2);//step 2 works
-            filename    = filename.Remove   (0, 3);//Step 2 works
-            episode     = filename.Substring(0, 2);//step 3 works
-            filename    = filename.Remove   (0, 3);//Step 3 works 
+            filename = filename.Remove(0, 7);//Step 1 works
+            season = filename.Substring(0, 2);//step 2 works
+            filename = filename.Remove(0, 3);//Step 2 works
+            episode = filename.Substring(0, 2);//step 3 works
+            filename = filename.Remove(0, 3);//Step 3 works 
 
             while (true)//step 4 works!
             {
                 if (filename.ElementAt(indexcts) == '.' || filename.Length <= indexcts)//cuts loop at end of string or at .
                 {
-                    if(filename.Length <= indexcts) { noexteion = true; }// sets no extension to true
+                    if (filename.Length <= indexcts) { noexteion = true; }// sets no extension to true
                     break;//leave loop
                 }
-               tempstring = tempstring + filename.ElementAt(indexcts);//builds tempstring with name
-               indexcts++;//index addition
+                tempstring = tempstring + filename.ElementAt(indexcts);//builds tempstring with name
+                indexcts++;//index addition
             }
             name = tempstring;//completes step 4
-            filename=filename.Remove(0, indexcts);//removes everything except file extension
-            if(noexteion != true)
+            filename = filename.Remove(0, indexcts);//removes everything except file extension
+            if (noexteion != true)
             {
                 extension = filename;
             }
@@ -75,16 +75,16 @@ namespace Rename_Pro
         public string last_result() { return final_result; }
         private string clean(string input)//clean up File location
         {
-            MessageBox.Show(input);
+            //MessageBox.Show(input);
             //determine total string size
             bool anyfound = false;
             int length = input.Length;
             int count = 0;
             int last_index = 0;//last index where
-            //go through every charactor and at every "/" note the index place
+                               //go through every charactor and at every "/" note the index place
 
-            
-            while(count < length)
+
+            while (count < length)
             {
                 if (input.ElementAt(count) == '\\')
                 {
@@ -98,10 +98,11 @@ namespace Rename_Pro
             {
                 input = input.Remove(0, last_index + 1);
             }
-            MessageBox.Show(input);
+            //MessageBox.Show(input);
             return input;
         }
-
+        public void set_series_name(string input){series_name = input;}
+    };
         /* Steps for renaming a lynda file
          * File looks like 496951_00_01-Welcome.mp4
          * Step1 --> Chop off first 7 chars
@@ -114,4 +115,3 @@ namespace Rename_Pro
          * 
          * */
         }
-    }
