@@ -16,5 +16,15 @@ namespace Rename_Pro
         {
             InitializeComponent();
         }
+
+        private void mainform_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
