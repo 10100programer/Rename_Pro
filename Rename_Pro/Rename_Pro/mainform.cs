@@ -104,6 +104,9 @@ namespace Rename_Pro
                 rename(textBox2.Text, listBox1.Items[count2].ToString(), listBox2.Items[count2].ToString());//renames the files
                 count2++;
             }
+            MessageBox.Show("Opperation completed");
+            listBox1.Items.Clear();
+            listBox2.Items.Clear();
         }
         void rename(string path_folder, string old, string new_name)
         {
