@@ -106,5 +106,10 @@ namespace Rename_Pro
         {
             this.Close();
         }
+
+        private void tableLayoutPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

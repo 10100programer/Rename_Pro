@@ -20,7 +20,11 @@ namespace Rename_Pro
 
         private void mainform_Load(object sender, EventArgs e)
         {
-
+            if(Settings1.Default.LA == false)
+            {
+                license ls = new license();
+                ls.ShowDialog();
+            }
         }
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
@@ -35,6 +39,12 @@ namespace Rename_Pro
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string temptext = textBox3.Text;
+            if(temptext.Length <1)
+            {
+                MessageBox.Show("Please Fill in the \"Series\" box");
+                return;
+            }
             lyndaparse parse = new lyndaparse();//declare new lynda parse
             listBox1.Items.Clear();
             listBox2.Items.Clear();
@@ -117,6 +127,25 @@ namespace Rename_Pro
         {
             Form1 debugform = new Form1();
             debugform.Show();
+        }
+
+        private void viewLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            license ls = new license();
+            ls.ShowDialog();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                textBox2.Text = folderBrowserDialog1.SelectedPath;
+            }
         }
     }
 }

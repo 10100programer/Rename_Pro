@@ -33,8 +33,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -48,18 +48,21 @@
             // 
             this.richTextBox1.Location = new System.Drawing.Point(12, 97);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(566, 348);
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(566, 308);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
             // button1
             // 
+            this.button1.Enabled = false;
             this.button1.Location = new System.Drawing.Point(422, 7);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
             this.button1.Text = "Next >";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -69,6 +72,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel1
             // 
@@ -81,6 +85,15 @@
             this.panel1.Size = new System.Drawing.Size(590, 91);
             this.panel1.TabIndex = 3;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(45, 37);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(256, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Please read the following license agreement carefully";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -91,21 +104,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "License Agreement";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 37);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(256, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Please read the following license agreement carefully";
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 497);
+            this.panel2.Location = new System.Drawing.Point(0, 458);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(590, 42);
             this.panel2.TabIndex = 4;
@@ -113,7 +117,7 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(12, 451);
+            this.radioButton1.Location = new System.Drawing.Point(12, 411);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(228, 17);
             this.radioButton1.TabIndex = 5;
@@ -124,13 +128,15 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(12, 474);
+            this.radioButton2.Checked = true;
+            this.radioButton2.Location = new System.Drawing.Point(12, 434);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(261, 17);
             this.radioButton2.TabIndex = 6;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "I do not accept the terms in the license agreement";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // pictureBox1
             // 
@@ -147,13 +153,19 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(590, 539);
+            this.CancelButton = this.button2;
+            this.ClientSize = new System.Drawing.Size(590, 500);
+            this.ControlBox = false;
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.richTextBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "license";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "license";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
